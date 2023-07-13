@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+        .container{
+            text-align: center;
+            width: 40%;
+            margin: 40px auto;   
+            padding: 30px;   
+            background: linear-gradient(135deg, #00feba, #5b548a);
+            color: white;  
+            border-radius: 35px; 
+            height:  75vh;   
+        }
+        h1{
+            text-align: center;
+        }
+        .inp{
+            margin: 10px;
+            padding: 4px;
+            font-size: 20px;
+        }
+        input[type="number"],
+        select{
+            width: 50%;
+            margin: 12px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+        .btn{
+            width: 30%;
+            margin: 12px;
+            padding: 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .btn::after{
+            color: gr;
+        }
+    </style>
+    <title>Temperature Converter</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="h">Temperature Converter</h1>
+        <p class="inp">Enter Degree:<br><input type="number" name="degree" id="degree"></p>
+        <p class="inp">Type:<br><select name="type" id="type" placeholder="Please Enter Degree">
+            <option value="">Please Select One</option>
+            <option value="fahrenheit">Fahrenheit °F</option>
+            <option value="celsius">Celsius °C</option>
+        </select></p>
+        <p><button class="btn" type="button" onclick="convertTemperature()">Convert</button></p>
+        <p class="inp">Result:<br><input type="number" name="result" id="result" readonly></p>
+    </div>
+    <script>
+        function convertTemperature() {
+            var degreeInput = document.getElementById('degree');
+            var typeSelect = document.getElementById('type');
+            var resultInput = document.getElementById('result');
+
+            var degree = Number(degreeInput.value);
+            var type = typeSelect.value;
+
+            if (isNaN(degree)) {
+                alert("Please enter a valid number for the degree.");
+                return;
+            }
+
+            if (type === "fahrenheit") {
+                var result = ((degree * 9/5) + 32 );
+                // resultInput.value = result + "°F";
+                resultInput.value = result.toFixed(2);
+                console.log(C);
+            } else if (type === "celsius") {
+                var result = ((degree - 32) * 5/9 );
+                // resultInput.value = Math.round(result) + "°C";
+                resultInput.value = result.toFixed(2);
+            } else {
+                alert("Please select a temperature type.");
+            }
+        }
+    </script>
+</body>
+</html>
